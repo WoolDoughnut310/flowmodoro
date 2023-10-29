@@ -1,11 +1,11 @@
 <script lang="ts">
 	import { state, States } from './stores';
-	import { onMount, SvelteComponentTyped } from 'svelte';
+	import { onMount, SvelteComponent } from 'svelte';
 
 	export let title: string;
 	export let newState: States;
 	export let activateOnSpace: boolean = false;
-	export let Icon: SvelteComponentTyped;
+	export let Icon: typeof SvelteComponent;
 
 	const onClick = () => {
 		$state = newState;
@@ -27,6 +27,6 @@
 	});
 </script>
 
-<button class="rounded-full hover:bg-[#00000099]" {title} on:click={onClick}>
-	<Icon size="96" />
+<button class="btn btn-circle w-24 h-24 hover:bg-[#00000099]" {title} on:click={onClick}>
+	<svelte:component this={Icon} size="100%" />
 </button>

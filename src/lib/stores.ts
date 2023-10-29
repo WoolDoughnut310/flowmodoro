@@ -9,7 +9,9 @@ export interface StatsRow {
 }
 
 export interface Task {
+    id: string,
     name: string,
+    checked: boolean,
     stats: StatsRow[],
 }
 
@@ -42,6 +44,7 @@ const initialTasks: Task[] = browser ? JSON.parse(window.localStorage.getItem("t
 const initialSettings: Settings = browser ? JSON.parse(window.localStorage.getItem("settings")) ?? defaultSettings : defaultSettings;
 
 export const tasks = writable<Task[]>(initialTasks);
+export const selectedTask = writable("");
 export const settings = writable<Settings>(initialSettings);
 
 state.subscribe((value) => {
@@ -49,11 +52,33 @@ state.subscribe((value) => {
         startTime.set(Date.now());
     } else {
         if (value === States.BREAK) {
-            breakDuration.set(get(running) / get(settings).breakRatio);
+            const breakTime = get(running) / get(settings).breakRatio;
+            breakDuration.set(breakTime);
+
+            // Update the stats for the task
+            tasks.update((value) => {
+                const currentTaskId = get(selectedTask);
+                const currentTask = value.find((item) => item.id === currentTaskId);
+
+                if (!currentTask) return value;
+
+                currentTask.stats.push({
+                    interruptions: get(interruptions),
+                    workTime: Math.round(get(running) / 1000),
+                    breakTime: Math.round(breakTime / 1000),
+                    timeStartedAt: get(startTime)
+                })
+
+
+                return [...value.filter((item) => item.id !== currentTaskId),
+                    currentTask
+                ]
+            })
         }
 
         interruptions.set(0);
         running.set(0);
+        startTime.set(0);
     }
 });
 
