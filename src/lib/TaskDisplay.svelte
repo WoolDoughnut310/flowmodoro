@@ -16,6 +16,8 @@
 		}
 	});
 
+	$: if (isEditing && inputElement) inputElement.focus();
+
 	onMount(() => {
 		const handleClick = (event: MouseEvent) => {
 			// On Click Outside
@@ -41,7 +43,7 @@
 
 	const onUpdate = () => {
 		const taskIndex = $tasks.findIndex((item) => item.id === task.id);
-		if (!taskIndex) return;
+		if (taskIndex === -1) return;
 
 		$tasks[taskIndex] = task;
 		$tasks = $tasks;
@@ -74,10 +76,11 @@
 				bind:value={task.name}
 				bind:this={inputElement}
 				disabled={$state !== States.UNSET}
-				on:keypress={(event) => {
+				on:keypress|capture={(event) => {
 					if (event.key === 'Enter') {
 						onUpdate();
 					}
+					event.stopPropagation();
 				}}
 			/>
 		{:else}

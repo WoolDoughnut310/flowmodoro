@@ -1,3 +1,7 @@
+<script lang="ts" context="module">
+	let locked = false;
+</script>
+
 <script lang="ts">
 	import { onMount } from 'svelte';
 
@@ -7,8 +11,12 @@
 
 	onMount(() => {
 		const keyHandler = (event: KeyboardEvent) => {
-			if (event.key === triggerKey) {
+			if (!locked && event.key === triggerKey) {
 				isOpen = !isOpen;
+				locked = isOpen;
+			} else if (event.key === 'Escape') {
+				isOpen = false;
+				locked = false;
 			}
 		};
 
