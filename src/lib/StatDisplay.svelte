@@ -4,8 +4,7 @@
 
 	export let task: Task;
 
-	const formatDuration = (num: number) => {
-		const seconds = num;
+	const formatDuration = (seconds: number) => {
 		const minutes = Math.floor(seconds / 60);
 		const hours = Math.floor(minutes / 60);
 		return `${hours} hr, ${minutes % 60} min, ${seconds % 60} sec`;
