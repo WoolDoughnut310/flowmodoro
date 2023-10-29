@@ -9,14 +9,15 @@
 	export let isOpen: boolean;
 	export let title: string;
 
+	const showModal = (show: boolean) => {
+		isOpen = show;
+		locked = show;
+	};
+
 	onMount(() => {
 		const keyHandler = (event: KeyboardEvent) => {
 			if (!locked && event.key === triggerKey) {
-				isOpen = !isOpen;
-				locked = isOpen;
-			} else if (event.key === 'Escape') {
-				isOpen = false;
-				locked = false;
+				showModal(!isOpen);
 			}
 		};
 
@@ -38,7 +39,7 @@
 			<slot name="body" />
 		</div>
 		<div class="modal-action">
-			<button class="btn" on:click={() => (isOpen = false)}>Close</button>
+			<button class="btn" on:click={() => showModal(false)}>Close</button>
 		</div>
 	</div>
 </dialog>
