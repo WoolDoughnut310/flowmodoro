@@ -2,10 +2,13 @@
 	import DisplayModal from './DisplayModal.svelte';
 	import { SlidersIcon } from 'svelte-feather-icons';
 	import { settings } from './stores';
+    import { sounds, playSound } from './sounds';
 
 	let isOpen = false;
 
-	const timerSounds = ['bell', 'whistle'];
+	const onPreviewSound = () => {
+        playSound($settings.timerSound);
+    }
 </script>
 
 <button on:click={() => (isOpen = true)} class="w-14 h-14 btn btn-circle btn-ghost p-2"
@@ -26,9 +29,9 @@
 		<div class="flex flex-row justify-around items-center">
 			<p class="font-mono text-2xl">Timer Sound</p>
 			<select class="select select-lg">
-				{#each timerSounds as timerSound}
-					<option class="text-xl" selected={$settings.timerSound === timerSound}
-						>{timerSound}</option
+				{#each sounds as sound}
+					<option class="text-xl" selected={$settings.timerSound === sound}
+						>{sound}</option
 					>
 				{/each}
 			</select>
