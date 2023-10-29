@@ -15,7 +15,7 @@
 		{#each $tasks as task (task.id)}
 			<StatDisplay {task} />
 		{:else}
-			<p>No data. Do some work!</p>
+			<p class="text-lg">No data. Do some work!</p>
 		{/each}
 	</svelte:fragment>
 </DisplayModal>

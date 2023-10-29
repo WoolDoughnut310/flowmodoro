@@ -6,6 +6,6 @@
 </script>
 
 <span title="Est. Break Time" class="text-4xl font-bold text-center">
-	<WatchIcon class="mx-auto" size="50" />
+	<WatchIcon class="mx-auto my-1" size="50" />
 	{breakTime} min
 </span>

@@ -30,7 +30,7 @@
 		{#each $tasks as task, index (task.id)}
 			<TaskDisplay {task} {index} />
 		{:else}
-			<p>No tasks created yet. Add one!</p>
+			<p class="text-lg">No tasks created yet. Add one!</p>
 		{/each}
 	</svelte:fragment>
 </DisplayModal>

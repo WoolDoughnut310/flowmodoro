@@ -86,7 +86,7 @@
 				class:line-through={task.checked}
 				on:click={() => {
 					if ($state === States.UNSET) isEditing = true;
-				}}>{task.name}</button
+				}}>&nbsp;{task.name}&nbsp;</button
 			>
 		{/if}
 	</div>

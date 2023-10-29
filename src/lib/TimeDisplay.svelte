@@ -51,10 +51,11 @@
 		};
 	});
 
-	$: splitSeconds = Math.round(displayTime / 10);
-	$: seconds = Math.round(splitSeconds / 100);
-	$: minutes = Math.round(seconds / 60);
-	$: hours = Math.round(minutes / 60);
+	// 100 'splitSeconds' in 1 second
+	$: splitSeconds = Math.floor(displayTime / 10);
+	$: seconds = Math.floor(splitSeconds / 100);
+	$: minutes = Math.floor(seconds / 60);
+	$: hours = Math.floor(minutes / 60);
 
 	$: time = [hours, minutes % 60, seconds % 60, splitSeconds % 100];
 </script>

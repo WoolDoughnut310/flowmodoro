@@ -17,3 +17,4 @@
 <p>
 	Press <kbd class="kbd bg-stone-600">o</kbd> to view options
 </p>
+<p>Press <kbd class="kbd bg-stone-600">i</kbd> to view info</p>

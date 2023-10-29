@@ -26,7 +26,7 @@
 			<h2 class="font-bold text-4xl">{title}</h2>
 			<slot name="header" />
 		</header>
-		<div class="flex flex-col w-full px-12 my-8 space-y-4">
+		<div class="flex flex-col w-full px-12 my-8 space-y-8">
 			<slot name="body" />
 		</div>
 		<div class="modal-action">

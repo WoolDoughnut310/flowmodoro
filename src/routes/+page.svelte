@@ -8,16 +8,18 @@
 	import CurrentTaskText from '$lib/CurrentTaskText.svelte';
 	import StatsDisplay from '$lib/StatsDisplay.svelte';
 	import OptionsDisplay from '$lib/OptionsDisplay.svelte';
+	import InfoDisplay from '$lib/InfoDisplay.svelte';
 </script>
 
-<main class="flex-1 w-full max-w-6xl flex flex-col justify-center items-center">
+<div class="flex-1 w-full max-w-6xl flex flex-col justify-center items-center">
 	<div
 		class="absolute top-0 right-0 display flex flex-row justify-center items-center p-12 space-x-4"
 	>
+		<InfoDisplay />
 		<StatsDisplay />
 		<OptionsDisplay />
 	</div>
-	<div class="flex w-3/5 py-2 flex-col justify-center items-center space-y-3">
+	<div class="mt-12 flex w-3/5 py-2 flex-col justify-center items-center space-y-3">
 		<CurrentTaskText />
 		<div class="flex w-full flex-row justify-around items-center">
 			<EstimatedBreakTime />
@@ -38,4 +40,5 @@
 	</div>
 
 	<TasksDisplay />
-</main>
+	<audio id="audio-player" />
+</div>
