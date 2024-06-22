@@ -8,7 +8,6 @@
 
 <svelte:head>
 	{@html webManifestLink}
-	<title>Flowmodoro</title>
 </svelte:head>
 
 <main class="w-full h-full flex flex-col items-center justify-center">
