@@ -16,7 +16,6 @@
     "@sveltejs/kit": "^1.20.4",
     "@typescript-eslint/eslint-plugin": "^6.0.0",
     "@typescript-eslint/parser": "^6.0.0",
-    "@vite-pwa/sveltekit": "^0.2.7",
     "autoprefixer": "^10.4.16",
     "daisyui": "^3.9.4",
     "eslint": "^8.28.0",
@@ -34,5 +33,8 @@
     "typescript": "^5.0.0",
     "vite": "^4.4.2"
   },
-  "type": "module"
+  "type": "module",
+  "dependencies": {
+    "vite-plugin-pwa": "^0.20.0"
+  }
 }
