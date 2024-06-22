@@ -38,8 +38,8 @@ export const breakDuration = writable(1);
 
 const defaultTasks: Task[] = [];
 const defaultSettings: Settings = {
-    breakRatio: 5,
-    timerSound: "bell",
+    breakRatio: 3,
+    timerSound: "ringtone",
 }
 
 // Persistence with Local Storage

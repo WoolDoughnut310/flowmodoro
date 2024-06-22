@@ -1,11 +1,11 @@
-import bell from "./assets/bell.mp3";
-import ring from "./assets/ring.wav";
-import scifiBeep from "./assets/scifi-beep.wav";
+import ringtone from "./assets/ringtone.mp3";
+import analogTimer from "./assets/analog-timer.mp3";
+import xylophoneMelody from "./assets/xylophone-melody.mp3";
 
 export const sounds: { [key: string]: string } = {
-    bell,
-    ring,
-    scifiBeep
+    ringtone,
+    analogTimer,
+    xylophoneMelody
 };
 
 export const playSound = (sound: string) => {
