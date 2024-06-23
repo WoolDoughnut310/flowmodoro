@@ -13,7 +13,7 @@
 
 <div class="flex-1 w-full max-w-6xl flex flex-col justify-center items-center">
 	<div
-		class="absolute top-0 right-0 display flex flex-row justify-center items-center p-12 space-x-4"
+		class="sm:absolute sm:top-0 sm:right-0 display flex flex-row justify-center items-center p-12 space-x-4"
 	>
 		<InfoDisplay />
 		<StatsDisplay />
