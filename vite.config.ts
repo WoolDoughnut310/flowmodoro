@@ -13,6 +13,7 @@ export default defineConfig({
 			includeAssets: ['favicon.ico', 'favicon.svg', 'apple-touch-icon.png', 'mask-icon.svg'],
 			manifest: {
 				name: 'Flowmodoro',
+				short_name: 'Flowmodoro',
 				short_description: "Flowmodoro app.",
 				description: "Flowmodoro timer app.",
 				theme_color: "#708090",
