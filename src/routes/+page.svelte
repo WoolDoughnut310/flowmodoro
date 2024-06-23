@@ -11,15 +11,16 @@
 	import InfoDisplay from '$lib/InfoDisplay.svelte';
 </script>
 
-<div class="flex-1 w-full max-w-6xl flex flex-col justify-center items-center">
+<div class="flex-1 w-full max-w-6xl flex flex-col sm:justify-center items-center">
 	<div
-		class="sm:absolute sm:top-0 sm:right-0 display flex flex-row justify-center items-center p-12 space-x-4"
+		class="mt-8 sm:mt-0 sm:absolute sm:top-0 sm:right-0 display flex flex-row justify-center items-center p-4 sm:p-12 space-x-4"
 	>
 		<InfoDisplay />
+		<TasksDisplay />
 		<StatsDisplay />
 		<OptionsDisplay />
 	</div>
-	<div class="mt-12 flex sm:w-3/5 py-2 flex-col justify-center items-center space-y-3">
+	<div class="mt-4 sm:mt-12 flex sm:w-3/5 py-2 flex-col justify-center items-center space-y-3">
 		<CurrentTaskText />
 		<div class="flex w-full flex-row justify-around items-center">
 			<EstimatedBreakTime />
@@ -28,17 +29,18 @@
 	</div>
 	<Stopwatch />
 
-	<div class="text-xl text-center font-mono mt-8 space-y-4">
+	<div class="text-xl text-center font-mono mt-8">
 		{#if $state !== States.BREAK}
-			<KeyboardHelpText />
+			<div class="hidden sm:contents space-y-4">
+				<KeyboardHelpText />
+			</div>
 		{:else}
-			<p>
+			<p class="mx-8">
 				Relax! Go for a walk! Stretch! Close your eyes! <br /> But DON'T scroll social media! And DON'T
 				play video games!
 			</p>
 		{/if}
 	</div>
 
-	<TasksDisplay />
 	<audio id="audio-player" />
 </div>

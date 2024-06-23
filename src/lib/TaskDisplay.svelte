@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { tasks, selectedTask, type Task, state, States } from './stores';
-	import { TrashIcon } from 'svelte-feather-icons';
+	import { Trash2Icon, TargetIcon } from 'svelte-feather-icons';
 	import { onMount } from 'svelte';
 
 	export let task: Task;
@@ -59,20 +59,20 @@
 
 <div
 	class:outline={isSelected}
-	class="outline-4 flex flex-row justify-start items-center bg-stone-800 px-5 py-8 rounded-xl text-xl"
+	class="outline-4 flex flex-row justify-start items-center bg-stone-800 px-2 py-2 sm:px-5 sm:py-4 rounded-xl text-xl"
 >
 	<input
 		type="checkbox"
 		bind:checked={task.checked}
 		on:change={onUpdate}
-		class="checkbox checkbox-lg"
+		class="checkbox checkbox-md sm:checkbox-lg"
 	/>
 	<div class="ml-6 flex-1">
 		{#if isEditing}
 			<input
 				type="text"
 				placeholder="Enter task name"
-				class="input input-bordered w-full text-lg"
+				class="input input-bordered w-full text-sm sm:text-lg"
 				bind:value={task.name}
 				bind:this={inputElement}
 				disabled={$state !== States.UNSET}
@@ -85,7 +85,7 @@
 			/>
 		{:else}
 			<button
-				class="h-max btn btn-ghost w-full normal-case text-lg"
+				class="h-max btn btn-ghost w-full normal-case text-sm sm:text-lg"
 				class:line-through={task.checked}
 				on:click={() => {
 					if ($state === States.UNSET) isEditing = true;
@@ -93,12 +93,15 @@
 			>
 		{/if}
 	</div>
-	<button disabled={$state !== States.UNSET} on:click={onSelect} class="btn btn-ghost mx-4"
-		>{!isSelected ? 'Select' : 'Deselect'}</button
+	<button disabled={$state !== States.UNSET} on:click={onSelect} class="btn btn-circle btn-ghost mx-4 w-6 h-6 sm:w-10 sm:h-10"
+		>
+			<span class="hidden">{!isSelected ? 'Select' : 'Deselect'}</span>
+			<TargetIcon size="100%" />
+		</button
 	>
 	<button
 		disabled={$state !== States.UNSET}
 		on:click={onDelete}
-		class="btn btn-circle w-14 h-14 p-3"><TrashIcon size="100%" /></button
+		class="btn btn-circle btn-ghost w-6 h-6 sm:w-10 sm:h-10"><Trash2Icon size="100%" /></button
 	>
 </div>

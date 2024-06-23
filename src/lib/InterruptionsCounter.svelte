@@ -2,20 +2,31 @@
 	import { interruptions } from './stores';
 	import { HashIcon, PlusCircleIcon, MinusCircleIcon } from 'svelte-feather-icons';
 
-	const btnClassName = 'btn btn-circle btn-ghost hidden group-hover:block absolute';
+	const btnClassName = 'btn p-0 w-8 h-8 sm:w-14 sm:h-14 btn-ghost block sm:hidden sm:group-hover:block absolute';
 </script>
 
-<div class="group relative flex flex-row items-center justify-between px-20 py-12">
-	<button class={`${btnClassName} left-3`} on:click={() => ($interruptions += 1)}
-		><PlusCircleIcon size="50" /></button
+<div class="group relative flex flex-row items-center justify-between ml-20 px-8 py-8 sm:px-20 sm:py-12">
+	<button
+		class={`${btnClassName} left-20 sm:left-3`}
+		on:click={() => ($interruptions = Math.max($interruptions - 1, 0))}
+		>
+			<MinusCircleIcon size="100%" />
+		</button
 	>
-	<span title="Interruptions" class="text-4xl font-bold text-center">
-		<HashIcon class="mx-auto my-1" size="50" />
+	<span title="Interruptions" class="text-2xl sm:text-4xl font-bold text-center">
+		<div class="hidden sm:contents">
+			<HashIcon class="mx-auto my-1" size="50" />
+		</div>
+		<div class="contents sm:hidden">
+			<HashIcon class="mx-auto my-1" size="30" />
+		</div>
 		{$interruptions}
 	</span>
 	<button
-		class={`${btnClassName} right-3`}
-		on:click={() => ($interruptions = Math.max($interruptions - 1, 0))}
-		><MinusCircleIcon size="50" /></button
+		class={`${btnClassName} right-20 sm:right-3`}
+		on:click={() => ($interruptions += 1)}
+		>
+			<PlusCircleIcon size="100%" />
+		</button
 	>
 </div>

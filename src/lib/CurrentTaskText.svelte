@@ -6,13 +6,11 @@
 </script>
 
 <div class="flex flex-row justify-center items-center">
-<div class="hidden sm:contents">
-	<ClipboardIcon size="64" />
-</div>
-<div class="contents sm:hidden">
-<ClipboardIcon size="32" />
-</div>
-	<p class="ml-4 text-lg sm:text-4xl font-mono">
-		{currentTask ? currentTask.name : 'No task selected'}
+	<div class="w-8 h-8 sm:w-14 sm:h-14">
+		<ClipboardIcon size="100%" />
+	</div>
+
+	<p class="ml-4 text-2xl sm:text-4xl font-mono">
+		{currentTask ? (currentTask.name !== '' ? currentTask.name : '[Unnamed]') : 'No task selected'}
 	</p>
 </div>

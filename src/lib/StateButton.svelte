@@ -14,19 +14,19 @@
 	onMount(() => {
 		if (!activateOnSpace) return;
 
-		const keyHandler = (event: KeyboardEvent) => {
+		const onKeyUp = (event: KeyboardEvent) => {
 			if (event.key === ' ') {
 				onClick();
 			}
 		};
-		window.addEventListener('keypress', keyHandler);
+		window.addEventListener('keyup', onKeyUp);
 
 		return () => {
-			window.removeEventListener('keypress', keyHandler);
+			window.removeEventListener('keyup', onKeyUp);
 		};
 	});
 </script>
 
-<button class="btn btn-circle w-24 h-24 hover:bg-[#00000099]" {title} on:click={onClick}>
+<button class="btn btn-circle w-12 h-12 sm:w-24 sm:h-24 sm:p-2" {title} on:click={onClick}>
 	<svelte:component this={Icon} size="100%" />
 </button>

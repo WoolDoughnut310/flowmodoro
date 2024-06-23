@@ -1,10 +1,10 @@
 <script lang="ts">
-	import { PlusCircleIcon } from 'svelte-feather-icons';
+	import { PlusCircleIcon, ClipboardIcon } from 'svelte-feather-icons';
 	import { tasks, state, States } from './stores';
 	import TaskDisplay from './TaskDisplay.svelte';
 	import DisplayModal from './DisplayModal.svelte';
 
-	let isOpen = false;
+	let dialogElement: HTMLDialogElement;
 
 	const createTask = () => {
 		$tasks = [
@@ -19,7 +19,10 @@
 	};
 </script>
 
-<DisplayModal triggerKey="t" bind:isOpen title="Tasks">
+<button on:click={() => dialogElement.showModal()} class="w-14 h-14 btn btn-circle btn-ghost p-2"
+	><ClipboardIcon size="100%" /></button
+>
+<DisplayModal triggerKey="t" bind:dialogElement title="Tasks">
 	<button
 		slot="header"
 		class="btn btn-wide h-12 py-1"
