@@ -7,7 +7,7 @@
 
 <div class="flex flex-row justify-center items-center">
 	<ClipboardIcon size="64" />
-	<p class="ml-4 text-4xl font-mono">
+	<p class="ml-4 text-lg sm:text-4xl font-mono">
 		{currentTask ? currentTask.name : 'No task selected'}
 	</p>
 </div>
