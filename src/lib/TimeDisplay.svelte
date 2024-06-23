@@ -60,7 +60,7 @@
 	$: time = [hours, minutes % 60, seconds % 60, splitSeconds % 100];
 </script>
 
-<p class="text-8xl group-hover:cursor-none font-bold font-mono">
+<p class="text-md sm:text-8xl group-hover:cursor-none font-bold font-mono">
 	{#each time as item, i}
 		{#if !(item === 0 && i === 0)}
 			<span>
