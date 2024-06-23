@@ -10,6 +10,21 @@ export default defineConfig({
 			devOptions: {
 				enabled: true
 			},
+			workbox: {
+				runtimeCaching: [{
+					handler: 'NetworkOnly',
+					 urlPattern: /\/api\/.*\/*.json/,
+					 method: 'POST',
+					 options: {
+						backgroundSync: {
+							name: 'myQueueName',
+							options: {
+								maxRetentionTime: 24 * 60
+							}
+						}
+					  }
+				}]
+			 },
 			includeAssets: ['favicon.ico', 'favicon.svg', 'apple-touch-icon.png', 'mask-icon.svg'],
 			manifest: {
 				name: 'Flowmodoro',
