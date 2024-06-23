@@ -48,7 +48,13 @@ export default defineConfig({
 						sizes: "1744x892",
 						type: "image/jpeg",
 						form_factor: "wide"
-					}
+					},
+					{
+						src: "screenshot-narrow.jpeg",
+						sizes: "360x740",
+						type: "image/jpeg",
+						form_factor: "narrow"
+					},
 				]
 			}
 		})
