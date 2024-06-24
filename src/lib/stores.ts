@@ -95,6 +95,9 @@ breakDuration.subscribe((value) => {
 
         // Play the timer sound
         playSound(get(settings).timerSound);
+		if (window.Notification && Notification.permission === "granted") {
+			new Notification("Break over");
+		}
     }
 })
 

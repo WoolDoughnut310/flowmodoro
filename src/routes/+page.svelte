@@ -9,6 +9,14 @@
 	import StatsDisplay from '$lib/StatsDisplay.svelte';
 	import OptionsDisplay from '$lib/OptionsDisplay.svelte';
 	import InfoDisplay from '$lib/InfoDisplay.svelte';
+	
+	import { onMount } from "svelte";
+	
+	onMount(() => {
+		if (window.Notification && Notification.permission === "default") {
+			Notification.requestPermission();
+		}
+	});
 </script>
 
 <div class="flex-1 w-full max-w-6xl flex flex-col sm:justify-center items-center">
