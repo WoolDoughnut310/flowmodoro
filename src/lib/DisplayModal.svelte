@@ -4,22 +4,27 @@
 
 <script lang="ts">
 	import { onMount } from 'svelte';
+	import { keyTriggerLocked } from "./stores";
 
 	export let triggerKey: string;
 	export let title: string;
 	
 	export let dialogElement: HTMLDialogElement;
+	
+	export const show = () => {
+		dialogElement?.showModal();
+		$keyTriggerLocked = true;
+	}
 
 	onMount(() => {		
 		const onKeyUp = (event: KeyboardEvent) => {
-			if (!locked && event.key === triggerKey) {
-				dialogElement.showModal();
-				locked = true;
+			if (!$keyTriggerLocked && event.key === triggerKey) {
+				show();
 			}
 		};
 		
 		const onClose = () => {
-			locked = false;
+			$keyTriggerLocked = false;
 		}
 
 		window.addEventListener('keyup', onKeyUp);

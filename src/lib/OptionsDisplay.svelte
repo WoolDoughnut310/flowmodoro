@@ -4,17 +4,17 @@
 	import { settings } from './stores';
 	import { sounds, playSound } from './sound';
 
-	let dialogElement: HTMLDialogElement;
+	let modal: DisplayModal;
 
 	const onPreviewSound = () => {
 		playSound($settings.timerSound);
 	};
 </script>
 
-<button on:click={() => dialogElement.showModal()} class="w-14 h-14 btn btn-circle btn-ghost p-2"
+<button on:click={modal.show} class="w-14 h-14 btn btn-circle btn-ghost p-2"
 	><SlidersIcon size="100%" /></button
 >
-<DisplayModal triggerKey="o" bind:dialogElement title="Options">
+<DisplayModal triggerKey="o" bind:this={modal} title="Options">
 	<svelte:fragment slot="body">
 		<div class="flex space-y-4 sm:space-y-0 flex-col sm:flex-row justify-around items-start sm:items-center">
 			<div class="flex flex-col items-start sm:items-center">

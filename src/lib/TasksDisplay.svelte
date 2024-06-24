@@ -4,7 +4,7 @@
 	import TaskDisplay from './TaskDisplay.svelte';
 	import DisplayModal from './DisplayModal.svelte';
 
-	let dialogElement: HTMLDialogElement;
+	let modal: DisplayModal;
 
 	const createTask = () => {
 		$tasks = [
@@ -19,10 +19,10 @@
 	};
 </script>
 
-<button on:click={() => dialogElement.showModal()} class="w-14 h-14 btn btn-circle btn-ghost p-2"
+<button on:click={modal.show} class="w-14 h-14 btn btn-circle btn-ghost p-2"
 	><ClipboardIcon size="100%" /></button
 >
-<DisplayModal triggerKey="t" bind:dialogElement title="Tasks">
+<DisplayModal triggerKey="t" bind:this={modal} title="Tasks">
 	<button
 		slot="header"
 		class="btn btn-wide h-12 py-1"

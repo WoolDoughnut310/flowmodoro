@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { state, States } from './stores';
+	import { state, States, keyTriggerLocked } from './stores';
 	import { onMount, SvelteComponent } from 'svelte';
 
 	export let title: string;
@@ -15,10 +15,11 @@
 		if (!activateOnSpace) return;
 
 		const onKeyUp = (event: KeyboardEvent) => {
-			if (event.key === ' ') {
+			if (!$keyTriggerLocked && event.key === ' ') {
 				onClick();
 			}
 		};
+		
 		window.addEventListener('keyup', onKeyUp);
 
 		return () => {

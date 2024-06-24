@@ -53,6 +53,8 @@ export const selectedTask = writable("");
 
 export const settings = writable<Settings>(initialSettings);
 
+export const keyTriggerLocked = writable(false);
+
 state.subscribe((value) => {
     if (value === States.RUNNING) {
         startTime.set(Date.now());
