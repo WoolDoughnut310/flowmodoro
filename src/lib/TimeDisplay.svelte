@@ -39,7 +39,7 @@
 		let intervalID: number;
 		
 		if (window.Worker) {
-			worker = new Worker("src/lib/setInterval-worker.js");
+			worker = new Worker("./src/lib/setInterval-worker.js");
 			worker.postMessage({ delay: 20 });
 			
 			worker.onmessage = (event) => {
