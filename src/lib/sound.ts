@@ -10,13 +10,10 @@ export const sounds: { [key: string]: string } = {
 
 export const playSound = (sound: string) => {
     if (!Object.keys(sounds).includes(sound)) return;
-
+	
     const audio: HTMLAudioElement | null = document.getElementById("audio-player") as HTMLAudioElement;
     if (!audio) return;
 
     audio.src = sounds[sound];
-
-    audio.addEventListener("canplaythrough", () => {
-        audio.play();
-    });
+	audio.play();
 }

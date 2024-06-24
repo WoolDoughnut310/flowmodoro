@@ -20,7 +20,7 @@
 		<StatsDisplay />
 		<OptionsDisplay />
 	</div>
-	<div class="mt-4 sm:mt-12 flex sm:w-3/5 py-2 flex-col justify-center items-center space-y-3">
+	<div class="my-4 sm:mt-12 flex sm:w-3/5 py-2 flex-col justify-center items-center space-y-8 sm:space-y-12">
 		<CurrentTaskText />
 		<div class="flex w-full flex-row justify-around items-center">
 			<EstimatedBreakTime />

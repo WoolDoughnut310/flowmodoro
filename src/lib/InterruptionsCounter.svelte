@@ -5,7 +5,7 @@
 	const btnClassName = 'btn p-0 w-8 h-8 sm:w-14 sm:h-14 btn-ghost block sm:hidden sm:group-hover:block absolute';
 </script>
 
-<div class="group relative flex flex-row items-center justify-between ml-20 px-8 py-8 sm:px-20 sm:py-12">
+<div class="group relative flex flex-row items-center justify-between ml-20 px-8 sm:px-20">
 	<button
 		class={`${btnClassName} left-20 sm:left-3`}
 		on:click={() => ($interruptions = Math.max($interruptions - 1, 0))}

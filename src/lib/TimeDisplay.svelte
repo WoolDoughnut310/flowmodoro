@@ -17,37 +17,45 @@
 		default:
 			break;
 	}
-
-	let previousTimestamp: number;
-
-	const updateRunningTime = (timestamp: number) => {
-		if (previousTimestamp === undefined) {
-			previousTimestamp = timestamp;
-		}
-
+	
+	let worker: Worker;
+	
+	const updateRunningTime = (elapsed: number) => {
 		switch ($state) {
 			case States.UNSET:
 				break;
 			case States.RUNNING:
-				$running += timestamp - previousTimestamp;
+				$running += elapsed;
 				break;
 			case States.BREAK:
-				$breakDuration = Math.max($breakDuration - (timestamp - previousTimestamp), 0);
+				$breakDuration = Math.max($breakDuration - elapsed, 0);
 				break;
 			default:
 				break;
 		}
-
-		previousTimestamp = timestamp;
-
-		window.requestAnimationFrame(updateRunningTime);
 	};
 
 	onMount(() => {
-		const request = window.requestAnimationFrame(updateRunningTime);
+		let intervalID: number;
+		
+		if (window.Worker) {
+			worker = new Worker("src/lib/setInterval-worker.js");
+			worker.postMessage({ delay: 20 });
+			
+			worker.onmessage = (event) => {
+				if (event.data.intervalID) {
+					intervalID = event.data.intervalID;
+				}
+				
+				if (event.data.elapsed) {
+					updateRunningTime(event.data.elapsed);
+				}
+			}
+		}
 
 		return () => {
-			window.cancelAnimationFrame(request);
+			if (intervalID) clearInterval(intervalID);
+			if (worker) worker.terminate();
 		};
 	});
 
