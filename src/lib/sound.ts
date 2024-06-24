@@ -13,7 +13,7 @@ export const playSound = (sound: string) => {
 	
     const audio: HTMLAudioElement | null = document.getElementById("audio-player") as HTMLAudioElement;
     if (!audio) return;
-
+console.log(sounds[sound]);
     audio.src = sounds[sound];
 	audio.play();
 }

@@ -1,6 +1,7 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
 	import { running, state, States, breakDuration } from './stores';
+	import setIntervalWorker from "./setInterval-worker.js?url";
 
 	let displayTime: number;
 
@@ -39,7 +40,7 @@
 		let intervalID: number;
 		
 		if (window.Worker) {
-			worker = new Worker("./src/lib/setInterval-worker.js");
+			worker = new Worker(setIntervalWorker);
 			worker.postMessage({ delay: 20 });
 			
 			worker.onmessage = (event) => {
