@@ -44,8 +44,9 @@
 			</div>
 		{:else}
 			<p class="mx-8">
-				Relax! Go for a walk! Stretch! Close your eyes! <br /> But DON'T scroll social media! And DON'T
-				play video games!
+				If you have a lot of energy, maintain your flow state (e.g. do some miscellaneous tasks)<br />
+				If you're tired, use active relaxation (e.g. mindfulness meditation)
+				
 			</p>
 		{/if}
 	</div>
