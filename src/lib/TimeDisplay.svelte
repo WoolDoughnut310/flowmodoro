@@ -41,7 +41,7 @@
 		
 		if (window.Worker) {
 			worker = new Worker(setIntervalWorker);
-			worker.postMessage({ delay: 20 });
+			worker.postMessage({ delay: 25 });
 			
 			worker.onmessage = (event) => {
 				if (event.data.intervalID) {
