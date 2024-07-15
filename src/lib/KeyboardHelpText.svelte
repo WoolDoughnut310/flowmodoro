@@ -9,12 +9,12 @@
 </p>
 
 <p>
-	Press <kbd class="kbd bg-stone-600">t</kbd> to view tasks
+	Press <kbd class="kbd bg-stone-700 text-slate-200">t</kbd> to view tasks
 </p>
 <p>
-	Press <kbd class="kbd bg-stone-600">s</kbd> to view stats
+	Press <kbd class="kbd bg-stone-700 text-slate-200">s</kbd> to view stats
 </p>
 <p>
-	Press <kbd class="kbd bg-stone-600">o</kbd> to view options
+	Press <kbd class="kbd bg-stone-700 text-slate-200">o</kbd> to view options
 </p>
-<p>Press <kbd class="kbd bg-stone-600">i</kbd> to view info</p>
+<p>Press <kbd class="kbd bg-stone-700 text-slate-200">i</kbd> to view info</p>
