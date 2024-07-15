@@ -8,6 +8,7 @@
 <div class="group relative flex flex-row items-center justify-between ml-20 px-8 sm:px-20">
 	<button
 		class={`${btnClassName} left-20 sm:left-3`}
+		aria-label="Add interruption"
 		on:click={() => ($interruptions = Math.max($interruptions - 1, 0))}
 		>
 			<MinusCircleIcon size="100%" />
@@ -24,6 +25,7 @@
 	</span>
 	<button
 		class={`${btnClassName} right-20 sm:right-3`}
+		aria-label="Remove interruption"
 		on:click={() => ($interruptions += 1)}
 		>
 			<PlusCircleIcon size="100%" />
