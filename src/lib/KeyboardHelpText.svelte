@@ -3,7 +3,7 @@
 </script>
 
 <p>
-	Press <kbd class="kbd bg-stone-600">Space</kbd> to {$state === States.UNSET
+	Press <kbd class="kbd bg-stone-700 text-slate-200">Space</kbd> to {$state === States.UNSET
 		? 'start'
 		: 'take a break'}
 </p>
