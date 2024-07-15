@@ -11,7 +11,7 @@
 	};
 </script>
 
-<button on:click={modal.show} class="w-14 h-14 btn btn-circle btn-ghost p-2"
+<button on:click={modal.show} aria-label="Options" class="w-14 h-14 btn btn-circle btn-ghost p-2"
 	><SlidersIcon size="100%" /></button
 >
 <DisplayModal triggerKey="o" bind:this={modal} title="Options">
@@ -23,13 +23,13 @@
 			</div>
 			<div class="flex flex-row-reverse sm:flex-col items-center justify-start sm:justify-center space-y-2">
 				<p class="font-bold text-md sm:text-2xl ml-6 sm:ml-0">{$settings.breakRatio}</p>
-				<input type="range" min={3} max={5} bind:value={$settings.breakRatio} class="range range-sm" />
+				<input type="range" min={3} max={5} bind:value={$settings.breakRatio} aria-label="Break ratio" class="range range-sm" />
 			</div>
 		</div>
 		<div class="flex space-y-4 sm:space-y-0 flex-col sm:flex-row items-start justify-center sm:items-center sm:justify-around">
 			<p class="font-mono text-lg sm:text-2xl">Timer Sound</p>
 			<div class="flex flex-row justify-around items-center">
-				<select bind:value={$settings.timerSound} class="select select-sm sm:select-lg">
+				<select bind:value={$settings.timerSound} aria-label="Timer sound" class="select select-sm sm:select-lg">
 					{#each Object.keys(sounds) as sound}
 						<option value={sound} class="text-xl">{sound}</option>
 					{/each}
