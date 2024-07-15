@@ -45,7 +45,7 @@
 		{:else}
 			<p class="mx-8">
 				If you have a lot of energy, maintain your flow state (e.g. do some miscellaneous tasks)<br />
-				If you're tired, use active relaxation (e.g. mindfulness meditation)
+				If you are tired, use active relaxation (e.g. mindfulness meditation)
 				
 			</p>
 		{/if}
