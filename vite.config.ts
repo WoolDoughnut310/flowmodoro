@@ -29,8 +29,8 @@ export default defineConfig({
 			manifest: {
 				name: 'Flowmodoro',
 				short_name: 'Flowmodoro',
-				short_description: "Flowmodoro app.",
-				description: "Flowmodoro timer app.",
+				short_description: "Maintain focus with the Flowmodoro timer app.",
+				description: "Optimise concentration & energy with the Flowmodoro timer app.",
 				theme_color: "#708090",
 				icons: [
 					{
