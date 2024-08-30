@@ -57,9 +57,12 @@ export const keyTriggerLocked = writable(false);
 
 state.subscribe((value) => {
     if (value === States.RUNNING) {
-        startTime.set(Date.now());
+		playSound("startstop");
+		startTime.set(Date.now());
     } else {
         if (value === States.BREAK) {
+			playSound("startstop");
+			
             // Calculate the break duration
             const breakTime = get(running) / get(settings).breakRatio;
             breakDuration.set(breakTime);
