@@ -1,6 +1,7 @@
 import { get, writable } from "svelte/store";
 import { browser } from "$app/environment";
-import { playSound } from "./sound";
+import { playSound, playSoundSrc } from "./sound";
+import startstop from "./assets/startstop.wav";
 
 export interface StatsRow {
     interruptions: number,
@@ -57,11 +58,11 @@ export const keyTriggerLocked = writable(false);
 
 state.subscribe((value) => {
     if (value === States.RUNNING) {
-		playSound("startstop");
+		playSoundSrc(startstop);
 		startTime.set(Date.now());
     } else {
         if (value === States.BREAK) {
-			playSound("startstop");
+			playSoundSrc(startstop);
 			
             // Calculate the break duration
             const breakTime = get(running) / get(settings).breakRatio;
